@@ -6,9 +6,9 @@ import 'package:recipe_diary/screens/meals.dart';
 import 'package:recipe_diary/widgets/category_grid_item.dart';
 
 class CategoryItem extends StatelessWidget {
-  const CategoryItem({super.key,required this.onToggleFavorite,required this.availableMeal});
+  const CategoryItem({super.key,required this.availableMeal});
 
-  final void Function(Meal meal) onToggleFavorite;
+
   final List<Meal> availableMeal;
   void _selectCategory(BuildContext context, Category category) {
     final filteredMeals = availableMeal
@@ -20,7 +20,7 @@ class CategoryItem extends StatelessWidget {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (ctx) =>
-            MealsScreen(meals: filteredMeals, title: category.title,onToggleFavorite: onToggleFavorite,),
+            MealsScreen(meals: filteredMeals, title: category.title),
       ),
     );
   }
